@@ -7,7 +7,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>명당 Prototype</title>
 
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/style.css?v=20260617-1719" rel="stylesheet" />
 </head>
 
 <body>
@@ -340,16 +340,19 @@
           </div>
 
           <div class="property locked-property">
-            <div class="locked-placeholder">
-              🔒
-            </div>
-
-            <div>
-              <h2>개인화 추천 결과 대기</h2>
-              <p class="sub">
-                로그인 후 설문을 완료하면 사용자 조건에 맞는 후보지가 표시됩니다.
+            <div class="lrod-promo">
+              <div class="recommend-label">MYOUNGDANG AI SPACE SCANNER</div>
+              <h2>내 생활 패턴에 맞는 공간을 먼저 읽어보는 서비스</h2>
+              <p>
+                활동지역, 생활시간, 직업, 취미와 예산을 바탕으로 주거 후보를 탐색합니다.<br>
+                탐색 전에는 라이프스타일 기준만 정리합니다.
               </p>
-              <button class="btn" onclick="moveTo('signup')">로그인 후 분석 시작</button>
+              <div class="promo-metrics">
+                <div class="promo-metric"><strong>L-Rod</strong><span>생활 기준 스캔</span></div>
+                <div class="promo-metric"><strong>Teo</strong><span>매물·실내 뷰포트</span></div>
+                <div class="promo-metric"><strong>Tao</strong><span>시세·생활권 분석</span></div>
+                <div class="promo-metric"><strong>Map</strong><span>후보 아카이빙</span></div>
+              </div>
             </div>
           </div>
         </main>
@@ -377,6 +380,16 @@
               · 원하는 지역을 입력하면 후보지를 분석합니다.<br />
               · 예산과 생활 패턴에 따라 적합도를 계산합니다.<br />
               · 소음, 역세권, 생활 인프라 기준을 반영합니다.
+            </div>
+
+            <div class="analysis-standby" aria-hidden="true">
+              <div class="analysis-standby-head">
+                <span>ANALYSIS STANDBY</span>
+                <small>입력 대기</small>
+              </div>
+              <div class="analysis-signal"><span></span></div>
+              <div class="analysis-signal"><span></span></div>
+              <div class="analysis-signal"><span></span></div>
             </div>
           </div>
 
@@ -507,7 +520,7 @@
             </aside>
           </section>
         </div>
-        <button class="btn" onclick="moveTo('master')">Master Tao 분석 보기</button>
+        <button class="btn master-analysis-btn" onclick="moveTo('master')">Master Tao 분석 보기</button>
       </div>
     </section>
     <section class="page" id="master">
@@ -552,9 +565,9 @@
         <table class="compare-table archive-table">
           <thead><tr><th>아카이브</th><th>지역</th><th>선택 상태</th><th>적합도</th><th>생활권 기록</th><th>시세 메모</th><th>실내 옵션</th></tr></thead>
           <tbody id="taoArchiveBody">
-            <tr><td>용산 푸르지오 써밋</td><td>한강로2가</td><td>대표 후보</td><td>92</td><td>신용산역·용산역 생활권, 대형몰 접근</td><td>5억~7억, 관리비 확인 필요</td><td>일조량 / 미세먼지 / 환기</td></tr>
-            <tr><td>시티파크 오피스텔</td><td>한강로3가</td><td>비교 후보</td><td>88</td><td>공원 접근, 상업시설 인접</td><td>4억~6억, 세대별 노후도 확인</td><td>일조량 / 환기</td></tr>
-            <tr><td>용산시티하우스</td><td>한강로3가</td><td>예산 후보</td><td>84</td><td>원룸형 생활권, 골목 상권 접근</td><td>2.4억~2.9억, 면적 제한</td><td>미세먼지 / 환기</td></tr>
+            <tr><td>용산 푸르지오 써밋</td><td>한강로2가</td><td>대표 후보</td><td>92</td><td>용산역 7분, 생활인프라 상, 한강공원 8분</td><td>오피스텔 · 84㎡ · 매매 5억~7억</td><td>일조량 / 미세먼지 / 환기</td></tr>
+            <tr><td>시티파크 라이트룸</td><td>한강로3가</td><td>비교 후보</td><td>88</td><td>여의도 18분, 공원 접근, 대형몰 생활권</td><td>투룸형 · 59㎡ · 전세 4.8억</td><td>일조량 / 환기</td></tr>
+            <tr><td>후암 슬로우하우스</td><td>후암동</td><td>예산 후보</td><td>84</td><td>서울역 14분, 골목 상권, 예산 절감형</td><td>원룸형 · 36㎡ · 월세 1000/78</td><td>미세먼지 / 환기</td></tr>
           </tbody>
         </table>
         <button class="btn" onclick="moveTo('decision')">최종 의사결정하기</button>
@@ -582,8 +595,8 @@
           <div class="info-card">
             <h3>대안 선택지</h3>
             <p>
-              예산 부담이 크다면 시티파크 오피스텔,
-              예산을 가장 우선한다면 용산시티하우스도 현실적인 대안입니다.
+              예산 부담이 크다면 시티파크 라이트룸,
+              예산을 가장 우선한다면 후암 슬로우하우스도 현실적인 대안입니다.
             </p>
           </div>
         </div>
@@ -592,7 +605,7 @@
     </section>
   </div>
 
-  <script src="js/navigation.js"></script>
+  <script src="js/navigation.js?v=20260617-1638"></script>
   <script src="js/gemini.js"></script>
   <script src="js/chat.js"></script>
 </body>
